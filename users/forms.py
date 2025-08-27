@@ -5,4 +5,4 @@ from . import models
 class RegisterForm(forms.ModelForm):
     class Meta:
         model = models.User
-        fields = ['Username', 'Password']
+        fields = ['username', 'password']
