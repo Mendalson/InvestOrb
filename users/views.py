@@ -16,7 +16,12 @@ def register_view(request):
         form = forms.RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('users:main')
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('users:main')
     else:
         form = forms.RegisterForm()
     return render(request, 'register_page.html', {'form': form})
