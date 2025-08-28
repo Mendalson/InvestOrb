@@ -17,8 +17,13 @@
         <a href="/">
             Invest Orb
         </a>
+
         <a href="{% url 'users:main' %}">
-            Profile
+            {% if user.is_authenticated %}
+                {{ user.username }}
+            {% else %}
+                profile
+            {% endif %}
         </a>
     </nav>
 
