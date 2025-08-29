@@ -8,7 +8,15 @@ def main_view(request):
 
 
 def login_view(request):
-    return render(request, 'login_page.html')
+    if request.method == 'POST':
+        form = forms.LoginForm(request, request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('users:main')
+    else:
+        form = forms.LoginForm()
+    return render(request, 'login_page.html', {'form': form})
 
 
 def register_view(request):

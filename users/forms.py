@@ -1,5 +1,7 @@
 from django import forms
 from django.contrib.auth import password_validation
+from django.contrib.auth.forms import AuthenticationForm
+
 from . import models
 
 
@@ -33,3 +35,12 @@ class RegisterForm(forms.ModelForm):
             user.save()
 
         return user
+
+
+class LoginForm(AuthenticationForm):
+    password = forms.CharField(widget=forms.PasswordInput, label='Пароль')
+    username = forms.CharField(widget=forms.TextInput, label='Логин')
+
+    class Meta:
+        model = models.User
+        fields = ['username', 'password']

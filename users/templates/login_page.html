@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Авторизация
+{% endblock %}
+
+{% block content %}
+    <section>
+        <h1>Авторизация</h1>
+        <form method="post" action="{% url 'users:login' %}">
+            {% csrf_token %}
+            {{ form }}
+            <button>Подтвердить</button>
+        </form>
+    </section>
+{% endblock %}
