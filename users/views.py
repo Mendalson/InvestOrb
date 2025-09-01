@@ -3,17 +3,13 @@ from django.contrib.auth import authenticate, login, logout
 from . import forms
 
 
-def main_view(request):
-    return render(request, 'main_page.html')
-
-
 def login_view(request):
     if request.method == 'POST':
         form = forms.LoginForm(request, request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('users:main')
+            return redirect('analytics:main')
     else:
         form = forms.LoginForm()
     return render(request, 'login_page.html', {'form': form})
@@ -29,7 +25,12 @@ def register_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('users:main')
+                return redirect('analytics:main')
     else:
         form = forms.RegisterForm()
     return render(request, 'register_page.html', {'form': form})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
