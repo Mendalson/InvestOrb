@@ -5,12 +5,27 @@
 {% endblock %}
 
 {% block content %}
-    <section>
-        <h1>Авторизация</h1>
-        <form method="post" action="{% url 'users:login' %}">
-            {% csrf_token %}
-            {{ form }}
-            <button>Подтвердить</button>
-        </form>
-    </section>
+    <div class="register">
+        <section>
+            <h1>Авторизация</h1>
+            <form method="post" action="{% url 'users:login' %}">
+                {% csrf_token %}
+
+                <div class="input-group">
+                    {{ form.username }}
+                    <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+                </div>
+
+                <div class="input-group">
+                    {{ form.password }}
+                    <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+                </div>
+
+                <div class="center_button">
+                    <button>Подтвердить</button>
+                </div>
+            </form>
+            <p>Еще нет аккаунта? <a href="{% url 'users:register' %}">Зарегистрироваться</a></p>
+        </section>
+    </div>
 {% endblock %}

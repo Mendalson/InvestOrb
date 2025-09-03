@@ -1,6 +1,194 @@
-html {
-    background-color: #d8c9ae;
-    color: #575757;
+body {
+    background-color: #e6e2d7;
+    color: #333;
     font-family: verdana, sans-serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.register a {
+    text-decoration: none;
+    color: #667eea;
+    transition: color 0.2s;
+    font-weight: 500;
+}
+.register a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+.register button {
+    margin-top: 7px;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+
+    font-size: 18px;
+
+    background-color: #333;
+    color: #e6e2d7;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.register button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.register button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+input {
+    margin: 5px 0px;
+    height: 15px;
+    padding: 5px;
+
+}
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.register section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px;
+}
+.register h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+.register p {
+    text-align: center;
+}
+.center_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    outline: none;
     font-size: 16px;
+    background: none;
+}
+.input-group label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -8px;
+    left: 8px;
+    font-size: 13px;
+    color: #333;
+    background: white;
+    padding: 0 5px;
+}
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Лого */
+.navigation a:first-child {
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    transition: color 0.3s ease;
+    position: relative;
+    letter-spacing: -0.5px;
+}
+
+/* Оставляем красивую анимацию на Invest Orb */
+.navigation a:first-child:hover {
+    color: #667eea;
+}
+.navigation a:first-child::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #667eea;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+.navigation a:first-child:hover::after {
+    width: 100%;
+}
+
+/* Имя пользователя */
+.nav-username {
+    margin-left: 65%;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.nav-username:hover {
+    background-color: #f2f2f2;   /* светлый фон при наведении */
+    color: #000;                 /* чуть темнее текст */
+}
+
+/* Кнопки (и ссылки, и настоящая кнопка логаута) */
+.nav-button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    background: #333;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.nav-button:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.nav-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Сбрасываем стиль у формы */
+.nav-form {
+    display: inline;
+    margin: 0;
 }

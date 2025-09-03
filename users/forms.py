@@ -6,12 +6,14 @@ from . import models
 
 
 class RegisterForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput,
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': ''}),
+                               label="Логин",)
+
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': ''}),
                                label='Пароль')
 
-    password2 = forms.CharField(widget=forms.PasswordInput,
-                                label='Подтвердите пароль',
-                                help_text='Для подтверждения введите тот же пароль, что и раньше.')
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': ''}),
+                                label='Повторите пароль',)
 
     class Meta:
         model = models.User
@@ -38,8 +40,11 @@ class RegisterForm(forms.ModelForm):
 
 
 class LoginForm(AuthenticationForm):
-    password = forms.CharField(widget=forms.PasswordInput, label='Пароль')
-    username = forms.CharField(widget=forms.TextInput, label='Логин')
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': ''}),
+                               label='Логин')
+
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': ''}),
+                               label='Пароль')
 
     class Meta:
         model = models.User
