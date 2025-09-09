@@ -25,6 +25,7 @@ app_name = 'investorb'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('', views.home_page, name='home_page'),
     path('user/', include('users.urls'), name='user'),
     path('analytics/', include('analytics.urls'), name='analytics'),

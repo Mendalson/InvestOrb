@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% load socialaccount %}
 
 {% block title %}
     Регистрация
@@ -30,6 +31,9 @@
                     <button>Подтвердить</button>
                 </div>
             </form>
+            <a href="{% provider_login_url 'google' %}">
+                <span>Войти через Google</span>
+            </a>
             <p>Уже есть аккаунт? <a href="{% url 'users:login' %}">Войти</a></p>
         </section>
     </div>
