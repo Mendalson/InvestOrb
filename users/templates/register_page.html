@@ -31,9 +31,12 @@
                     <button>Подтвердить</button>
                 </div>
             </form>
-            <a href="{% provider_login_url 'google' %}">
-                <span>Войти через Google</span>
-            </a>
+            <div class="center-wrapper">
+                <a href="{% provider_login_url 'google' %}" class="google-btn">
+                    <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" />
+                    <span>Войти через Google</span>
+                </a>
+            </div>
             <p>Уже есть аккаунт? <a href="{% url 'users:login' %}">Войти</a></p>
         </section>
     </div>
