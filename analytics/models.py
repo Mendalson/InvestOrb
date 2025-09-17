@@ -37,7 +37,7 @@ class Transaction(models.Model):
     date = models.DateField()
     type = models.CharField(max_length=64)
     quantity = models.DecimalField(max_digits=16, decimal_places=4)
-    price = models.DecimalField(max_digits=12, decimal_places=2)
+    price = models.DecimalField(max_digits=12, decimal_places=6)
     total = models.DecimalField(max_digits=12, decimal_places=2)
     currency = models.CharField(max_length=16, default="RUB")
 
@@ -46,6 +46,6 @@ class Position(models.Model):
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
     security = models.ForeignKey(Security, on_delete=models.CASCADE)
     quantity = models.DecimalField(max_digits=16, decimal_places=4)
-    average_price = models.DecimalField(max_digits=12, decimal_places=2)
-    price = models.DecimalField(max_digits=12, decimal_places=2)
+    average_price = models.DecimalField(max_digits=12, decimal_places=6)
+    price = models.DecimalField(max_digits=12, decimal_places=6)
     balance = models.DecimalField(max_digits=12, decimal_places=2)
