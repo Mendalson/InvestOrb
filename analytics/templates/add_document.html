@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    add document
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'analytics:add' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <input type="file">
+        </div>
+        <p>Пришлите отчет в формате .html</p>
+        <div>
+            <button>Подтвердить</button>
+        </div>
+    </form>
+{% endblock %}
