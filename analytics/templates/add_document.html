@@ -5,14 +5,19 @@
 {% endblock %}
 
 {% block content %}
-    <form action="{% url 'analytics:add' %}" method="post">
-        {% csrf_token %}
-        <div>
-            <input type="file">
-        </div>
-        <p>Пришлите отчет в формате .html</p>
-        <div>
-            <button>Подтвердить</button>
-        </div>
-    </form>
+    <div class="userReport">
+        <h1>Отправка отчёт</h1>
+
+        <form action="{% url 'analytics:add' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="input-file">
+                {{ form.file }}
+                <label for="{{ form.file.id_for_label }}">{{ form.file.label }}</label>
+            </div>
+            <p>Пришлите отчёт в формате .html</p>
+            <div class="center_button">
+                <button type="submit">Подтвердить</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}
